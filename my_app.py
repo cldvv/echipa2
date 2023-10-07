@@ -12,24 +12,22 @@ from second_win import *
        
 class MainWin(QWidget):
     def __init__(self):
-        ''' the window which the greeting is located in '''
+        # the window which the greeting is located in:
         super().__init__()
 
-        '''apelarea metodei care creaza si configureaza elementele grafice'''
+        #apelarea metodei care creaza si configureaza elementele grafice:
         self.initUI()
         
-        '''apelul metodei care leaga partea vizuala (exemplu butonul) de 
-           partea functionala (functia care se executa la apasarea butonului)'''
+        #apelul metodei care leaga partea vizuala (exemplu butonul) de partea functionala (functia care se executa la apasarea butonului):
         self.connects()
 
-        '''sets the window appearance (label, size, location)'''
+        # sets the window appearance (label, size, location):
         self.set_appear()
         
-        '''start:'''
+        # start:
         self.show()
 
-    ''' crearea, configurarea si adaugarea in interfata a elementelor grafice
-        precum texte si butoane '''
+    # crearea, configurarea si adaugarea in interfata a elementelor graficeprecum texte si butoane:
     def initUI(self):
         self.btn_next = QPushButton(txt_next)
         self.hello_text = QLabel(txt_hello)
