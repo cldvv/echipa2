@@ -6,8 +6,8 @@ from PyQt5.QtWidgets import (
         QGroupBox, QRadioButton,
         QPushButton, QLabel, QListWidget, QLineEdit)
 
-from instr import *
-from final_win import *
+#from instr import *
+#from final_win import *
 
 class Person():
     def __init__(self, name, age):
