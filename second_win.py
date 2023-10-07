@@ -43,13 +43,12 @@ class TestWin(QWidget):
 
     def initUI(self):
         ''' creates graphic elements '''
-        #self.questionnary = AllQuestions()
+        self.questionnary = AllQuestions()
         self.btn_next = QPushButton(txt_sendresults, self)
-        '''modificati cele 3 linii comentate de mai jos ca sa instantiati 3 butoane.
-           Cautati variabilele care contin textele in fisierul instr.py'''
-        #self.btn_test1 = butonul 'Start the first test'
-        #self.btn_test2 = butonul 'Start doing squats'
-        #self.btn_test3 = butonul 'Start the final test'
+        
+        self.btn_test1 = QPushButton(txt_starttest1)
+        self.btn_test2 = QPushButton(txt_starttest2)
+        self.btn_test3 = QPushButton(txt_starttest3)
 
 
         self.text_name = QLabel(txt_name)
@@ -84,14 +83,14 @@ class TestWin(QWidget):
         self.l_line.addWidget(self.text_age, alignment = Qt.AlignLeft)
         self.l_line.addWidget(self.line_age, alignment = Qt.AlignLeft)
         self.l_line.addWidget(self.text_test1, alignment = Qt.AlignLeft)
-        #self.l_line.addWidget(self.btn_test1, alignment = Qt.AlignLeft)
-        #self.l_line.addWidget(self.line_test1, alignment = Qt.AlignLeft) 
+        self.l_line.addWidget(self.btn_test1, alignment = Qt.AlignLeft)
+        self.l_line.addWidget(self.line_test1, alignment = Qt.AlignLeft) 
         self.l_line.addWidget(self.text_test2, alignment = Qt.AlignLeft)
-        #self.l_line.addWidget(self.btn_test2, alignment = Qt.AlignLeft) 
+        self.l_line.addWidget(self.btn_test2, alignment = Qt.AlignLeft) 
         self.l_line.addWidget(self.text_test3, alignment = Qt.AlignLeft)
-        #self.l_line.addWidget(self.btn_test3, alignment = Qt.AlignLeft)
-        #self.l_line.addWidget(self.line_test2, alignment = Qt.AlignLeft)
-        #self.l_line.addWidget(self.line_test3, alignment = Qt.AlignLeft) 
+        self.l_line.addWidget(self.btn_test3, alignment = Qt.AlignLeft)
+        self.l_line.addWidget(self.line_test2, alignment = Qt.AlignLeft)
+        self.l_line.addWidget(self.line_test3, alignment = Qt.AlignLeft) 
         self.l_line.addWidget(self.btn_next, alignment = Qt.AlignCenter) 
         self.h_line.addLayout(self.l_line)  
         self.h_line.addLayout(self.r_line)        
