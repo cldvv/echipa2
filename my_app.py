@@ -45,20 +45,17 @@ class MainWin(QWidget):
 
         self.layout_line = QVBoxLayout()
         self.layout_line.addWidget(self.hello_text, alignment = Qt.AlignLeft)
-        self.layout_line.addWidget(self.instruction, alignment = Qt.AlignRight)
+        self.layout_line.addWidget(self.instruction, alignment = Qt.AlignLeft)
         self.layout_line.addWidget(self.btn_next, alignment = Qt.AlignCenter)      
         self.setLayout(self.layout_line)
 
-    '''functia care este declansata la apasarea butonului next'''
     def next_click(self):
         '''in aceasta functie trebuie sa instantiem (cream) fereastra a2-a'''
-        '''numele clasei care creaza feastra a2-a o gasiti in fisierul secon_win.py'''
-        #self.tw = NumeleClaseiFerestreiDoi()
-        self.hide() #aceasta instructiune ascunde fereastra actuala pt a face loc pt cea noua
+        self.tw = TestWin()
+        self.hide()
     
     def connects(self):
-        '''functia care conecteaza butonul de functia next_click'''
-        #self.btn_next.clicked.connect(self.NUMELE_FUNCTIEI_CARE_AFISEAZA_FEREASTRA_DOI)
+        self.btn_next.clicked.connect(self.next_click)
 
     def set_appear(self):
         '''functia care seteaza aparenta ferestrei (titlu, dimensiune, pozitia pe ecran)'''
