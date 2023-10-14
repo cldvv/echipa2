@@ -42,9 +42,6 @@ class TestWin(QWidget):
         self.tw = TestWin()
         self.hide()
 
-    def connects(self):
-        self.btn_next.clicked.connect(self.next_click)
-
     ''' sets what the window will look like (label, size, location) '''
     def set_appear(self):
         self.setWindowTitle(txt_title)
@@ -124,10 +121,22 @@ class TestWin(QWidget):
         ''' '''
 
     def timer2Event(self):
-        ''' '''
+        global time 
+        time = time.addSecs(-1)
+        self.text_timer.setText(time.toString('hh:mm:ss')[6:8]) 
+        self.text_timer.setFont(QFont('Times', 36, QFont.Bold))
+        self.text_timer.setStyleSheet('color: rgb(0,0,0)')
+        if time.toString('hh:mm:ss')== '00:00:00':
+            self.timer.stop()
+        
+
 
     def timer_bob(self):
-        ''' '''
+        global time
+        time = QTime(0, 0, 30)
+        self.timer = QTimer()
+        self.timer.timeout.connect(self.timer2Event)
+        self.timer.start(1500)
 
     def timer3Event(self):
         ''' '''
@@ -138,6 +147,7 @@ class TestWin(QWidget):
     def connects(self):
         '''conectati butoanele btn_next,   btn_test1,   btn_test2, btn_test3
         la functiile asociate  next_click, timer_test1, timer_bob, timer_final'''
+        self.btn_test2.clicked.connect(self.timer_bob)
 
     ''' sets what the window will look like (label, size, location) '''
     def set_appear(self):
