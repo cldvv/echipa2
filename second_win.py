@@ -37,18 +37,26 @@ class TestWin(QWidget):
         
         # start:
         self.show()
+    
+    def next_click(self):
+        self.tw = TestWin()
+        self.hide()
 
     def connects(self):
         self.btn_next.clicked.connect(self.next_click)
 
+    ''' sets what the window will look like (label, size, location) '''
+    def set_appear(self):
+        self.setWindowTitle(txt_title)
+        self.resize(win_width, win_height)
+        self.move(win_x, win_y)
     def initUI(self):
         ''' creates graphic elements '''
-        self.questionnary = AllQuestions()
+        #self.questionnary = AllQuestions()
         self.btn_next = QPushButton(txt_sendresults, self)
-        
-        self.btn_test1 = QPushButton(txt_starttest1)
-        self.btn_test2 = QPushButton(txt_starttest2)
-        self.btn_test3 = QPushButton(txt_starttest3)
+        self.btn_test1 = QPushButton(txt_starttest1, self)
+        self.btn_test2 = QPushButton(txt_starttest2, self)
+        self.btn_test3 = QPushButton(txt_starttest3, self)
 
 
         self.text_name = QLabel(txt_name)
@@ -69,14 +77,21 @@ class TestWin(QWidget):
         self.line_age.setValidator(self.validator) # age should be a number!
         self.line_age.setValidator(QIntValidator(7, 150))
 
-        '''la fel ca line_age de mai sus, instantiati alte 3 casute de text
-           line_test1 (txt_hinttest1), 
-           line_test2 (txt_hinttest2), 
-           line_test3 (txt_hinttest3)'''
-        
-        self.l_line = QVBoxLayout() #PANOUL DIN STANGA (pt texte, casute de text, butoane)
-        self.r_line = QVBoxLayout() #PANOUL DIN DREAPTA (pt numarator genoflexiuni si temporizator)
-        self.h_line = QHBoxLayout() #PANOUL PRINCIPAL CARE LE CONTINE PE CELE DOUA PANOURI DE MAI SUS
+        self.line_test1 = QLineEdit(txt_hinttest1)
+        self.line_test1.setValidator(self.validator)
+        self.line_test1.setValidator(QIntValidator(0, 150))
+
+        self.line_test2 = QLineEdit(txt_hinttest2)
+        self.line_test2.setValidator(self.validator)
+        self.line_test2.setValidator(QIntValidator(0, 150))
+
+        self.line_test3 = QLineEdit(txt_hinttest3)
+        self.line_test3.setValidator(self.validator)
+        self.line_test3.setValidator(QIntValidator(0, 150))
+    
+        self.l_line = QVBoxLayout()
+        self.r_line = QVBoxLayout()
+        self.h_line = QHBoxLayout()
         self.r_line.addWidget(self.text_timer, alignment = Qt.AlignCenter)
         self.l_line.addWidget(self.text_name, alignment = Qt.AlignLeft)
         self.l_line.addWidget(self.line_name, alignment = Qt.AlignLeft) 
@@ -97,39 +112,35 @@ class TestWin(QWidget):
         self.setLayout(self.h_line)
     
     def next_click(self):
-        self.hide() #se ascunde fereastra curenta pt a face loc celei noi
+        self.hide()
         self.prs = Person(self.line_name.text, int(self.line_age.text()))
         self.exp = Experiment(self.prs, self.line_test1.text(), self.line_test2.text(), self.line_test2.text())
         self.fw = FinalWin(self.exp)
 
     def timer_test1(self):
-        '''timer primul test'''
+        ''' '''
 
     def timer1Event(self):
-        pass
+        ''' '''
 
     def timer2Event(self):
-        pass
+        ''' '''
 
     def timer_bob(self):
-        '''timer genoflexiuni'''
+        ''' '''
 
     def timer3Event(self):
-        pass
+        ''' '''
 
     def timer_final(self):
-        '''temporizatorul final'''
+        ''' '''
 
     def connects(self):
-        self.btn_next.clicked.connect(self.next_click)
-        '''conectarea celorlalte 3 butoane cu functiile asociate
-           respectiv timer_test1, timer_bob, timer_final
-        '''
+        '''conectati butoanele btn_next,   btn_test1,   btn_test2, btn_test3
+        la functiile asociate  next_click, timer_test1, timer_bob, timer_final'''
 
     ''' sets what the window will look like (label, size, location) '''
     def set_appear(self):
-        '''functia care seteaza aparenta ferestrei (titlu, dimensiune, pozitia pe ecran)'''
-        '''in fisierul instr.py gasiti numele variabilelor in care sunt tinute titlul, latimea, lungimea si pozitia ferestrei'''
-        #self.setWindowTitle(TITLU_FEREASTRA)
-        #self.resize(LATIME_FEREASTRA, LUNGIME_FEREASTRA)
-        #self.move(POZTIA_X, POZITIA_Y)
+        self.setWindowTitle(txt_title)
+        self.resize(win_width, win_height)
+        self.move(win_x, win_y)
