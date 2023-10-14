@@ -165,7 +165,7 @@ class TestWin(QWidget):
     def connects(self):
         '''conectati butoanele btn_next,   btn_test1,   btn_test2, btn_test3
         la functiile asociate  next_click, timer_test1, timer_bob, timer_final'''
-       
+        self.btn_test2.clicked.connect(self.timer_bob)
         
 
     ''' sets what the window will look like (label, size, location) '''
