@@ -150,17 +150,24 @@ class TestWin(QWidget):
         self.timer.start(1500)
 
     def timer3Event(self):
-        ''''''
-        # if int(time.toString("hh:mm:ss")[6:8]) >= 45
-        #     self.text_timer.setStyleSheet("color: rgb(0,255,0)")
-        # elif int(time.toString("hh:mm:ss")[6:8]) >= 15
-        #     self.text_timer.setStyleSheet("color: rgb(0,255,0)")
-        # else:
-        #     self.text_timer.setStyleSheet("color: rgb(0,0,0)")
+        if int(time.toString('hh:mm:ss')[6:8]) >= 45:
+            self.text_timer.setStyleSheet("color: rgb(0,255,0)")
+        elif int(time.toString('hh:mm:ss')[6:8]) <= 15:
+            self.text_timer.setStyleSheet('color: rgb(0,255,0')
+        else:
+            self.text_timer.setStyleSheet('color: rgb(0,0,0)')
+                    
 
     def timer_final(self):
+        global time 
+        time = time.addSecs(-1)
+        self.text_timer.setText(time.toString('hh:mm:ss')[6:8]) 
+        self.text_timer.setFont(QFont('Times', 36, QFont.Bold))
+        self.text_timer.setStyleSheet('color: rgb(0,0,0)')
+        if time.toString('hh:mm:ss')== '00:00:00':
+            self.timer.stop()
         time = QTime(0, 1, 0)
-        self.timer.timeout.connect(self.timer3Event)
+        self.timer.timeout.connect(self.timer3Event)  
 
     def connects(self):
         '''conectati butoanele btn_next,   btn_test1,   btn_test2, btn_test3
