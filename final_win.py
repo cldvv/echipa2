@@ -56,9 +56,30 @@ class FinalWin(QWidget):
         
         '''daca/if este intre 13 si 14 ani (inclusive)
         - scrieti ca in exemplul 7-8 ani ajustand indecsii dupa tabelul din prezentare'''
-        
+        if self.exp.person.age == 13 or self.exp.person.age == 14:
+            if self.index >= 16.5:
+                return txt_res1
+            elif self.index < 16.5 and self.index >= 12.5:
+                return txt_res2
+            elif self.index < 12.5 and self.index >= 7.5:
+                return txt_res3
+            elif self.index < 7.5 and self.index >= 2:
+                return txt_res4
+            else:
+                return txt_res5
         '''daca/if este mai mare egal ca 15 ani
         - scrieti ca in exemplul 7-8 ani ajustand indecsii dupa tabelul din prezentare'''
+        if self.exp.person.age >=15:
+            if self.index >= 15:
+                return txt_res1
+            elif self.index < 15 and self.index >= 11:
+                return txt_res2
+            elif self.index < 11 and self.index >= 6:
+                return txt_res3
+            elif self.index < 6 and self.index >= 0.5:
+                return txt_res4
+            else:
+                return txt_res5
         return "nu este gata"
 
     def initUI(self):
