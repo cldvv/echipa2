@@ -48,17 +48,18 @@ class FinalWin(QWidget):
             else:
                 return txt_res5
 
-        '''if varsta este intre 9 si 10 ani (inclusive)
+        '''daca/if varsta este intre 9 si 10 ani (inclusive)
          - scrieti ca in exemplul 7-8 ani de mai sus ajustand indecsii dupa tabelul din prezentare'''
        
-        '''if varsta este intre 11 si 12 ani (inclusive)
+        '''daca/if este intre 11 si 12 ani (inclusive)
         - scrieti ca in exemplul 7-8 ani ajustand indecsii dupa tabelul din prezentare'''
         
-        '''if varsta este intre 13 si 14 ani (inclusive)
+        '''daca/if este intre 13 si 14 ani (inclusive)
         - scrieti ca in exemplul 7-8 ani ajustand indecsii dupa tabelul din prezentare'''
         
-        '''if varsta este mai mare egal ca 15 ani
+        '''daca/if este mai mare egal ca 15 ani
         - scrieti ca in exemplul 7-8 ani ajustand indecsii dupa tabelul din prezentare'''
+        return "nu este gata"
 
     def initUI(self):
         ''' creates graphic elements '''
