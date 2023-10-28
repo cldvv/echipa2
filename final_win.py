@@ -44,28 +44,15 @@ class FinalWin(QWidget):
                 return txt_res4
             else:
                 return txt_res5
-        if self.exp.person.age == 9 or self.exp.person.age == 10:
-            if self.index >= 19.5:
-                return txt_res1
-            elif self.index < 19.5 and self.index >= 15.5:
-                return txt_res2
-            elif self.index < 15.5 and self.index >= 10.5:
-                return txt_res3
-            elif self.index < 10.5 and self.index >= 5:
-                return txt_res4
-            else:
-                return txt_res5
-        if self.exp.person.age == 11 or self.exp.person.age == 12:
-            if self.index >= 18:
-                return txt_res1
-            elif self.index < 18 and self.index >= 14:
-                return txt_res2
-            elif self.index < 14 and self.index >= 9:
-                return txt_res3
-            elif self.index < 9 and self.index >= 3.5:
-                return txt_res4
-            else:
-                return txt_res5
+
+        '''daca/if varsta este intre 9 si 10 ani (inclusive)
+         - scrieti ca in exemplul 7-8 ani de mai sus ajustand indecsii dupa tabelul din prezentare'''
+       
+        '''daca/if este intre 11 si 12 ani (inclusive)
+        - scrieti ca in exemplul 7-8 ani ajustand indecsii dupa tabelul din prezentare'''
+        
+        '''daca/if este intre 13 si 14 ani (inclusive)
+        - scrieti ca in exemplul 7-8 ani ajustand indecsii dupa tabelul din prezentare'''
         if self.exp.person.age == 13 or self.exp.person.age == 14:
             if self.index >= 16.5:
                 return txt_res1
@@ -77,7 +64,9 @@ class FinalWin(QWidget):
                 return txt_res4
             else:
                 return txt_res5
-        if self.exp.person.age >= 15:
+        '''daca/if este mai mare egal ca 15 ani
+        - scrieti ca in exemplul 7-8 ani ajustand indecsii dupa tabelul din prezentare'''
+        if self.exp.person.age >=15:
             if self.index >= 15:
                 return txt_res1
             elif self.index < 15 and self.index >= 11:
@@ -88,6 +77,7 @@ class FinalWin(QWidget):
                 return txt_res4
             else:
                 return txt_res5
+        return "nu este gata"
 
     def initUI(self):
         ''' creates graphic elements '''
