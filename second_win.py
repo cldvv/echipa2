@@ -37,22 +37,9 @@ class TestWin(QWidget):
         
         # start:
         self.show()
-    
-    def next_click(self):
-        self.tw = TestWin()
-        self.hide()
 
-    def connects(self):
-        self.btn_next.clicked.connect(self.next_click)
-
-    ''' sets what the window will look like (label, size, location) '''
-    def set_appear(self):
-        self.setWindowTitle(txt_title)
-        self.resize(win_width, win_height)
-        self.move(win_x, win_y)
     def initUI(self):
         ''' creates graphic elements '''
-        #self.questionnary = AllQuestions()
         self.btn_next = QPushButton(txt_sendresults, self)
         self.btn_test1 = QPushButton(txt_starttest1, self)
         self.btn_test2 = QPushButton(txt_starttest2, self)
@@ -114,7 +101,7 @@ class TestWin(QWidget):
     def next_click(self):
         self.hide()
         self.prs = Person(self.line_name.text, int(self.line_age.text()))
-        self.exp = Experiment(self.prs, self.line_test1.text(), self.line_test2.text(), self.line_test2.text())
+        self.exp = Experiment(self.prs, self.line_test1.text(), self.line_test2.text(), self.line_test3.text())
         self.fw = FinalWin(self.exp)
 
     def timer_test1(self):
@@ -178,6 +165,7 @@ class TestWin(QWidget):
         self.btn_test3.clicked.connect(self.timer_final)
 
     ''' sets what the window will look like (label, size, location) '''
+
     def set_appear(self):
         self.setWindowTitle(txt_title)
         self.resize(win_width, win_height)
